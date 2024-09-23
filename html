@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<div id="sidebar">
+    <h2>Planificador de Rutas</h2>
+    <select id="origin-select">
+        <option value="">Seleccionar Origen</option>
+    </select>
+    <select id="destination-select">
+        <option value="">Seleccionar Destino</option>
+    </select>
+    <button id="calculate-route">Calcular Ruta</button>
+    <div id="route-info"></div>
+    <div class="info-card">
+        <h4>Información</h4>
+        <p>Selecciona un origen y un destino para calcular la ruta. Haz clic en una sucursal para ver su ubicación en el mapa.</p>
+    </div>
+    <div id="sucursales-list">
+        <h3>Sucursales</h3>
+        <div class="sucursales-container"></div>
+    </div>
+</div>
+<div id="map-container">
+    <div id="map"></div>
+</div>
