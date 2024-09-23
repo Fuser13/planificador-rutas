@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary-color: #4a90e2; /* Azul principal */
+  --secondary-color: #ffffff; /* Blanco */
+  --background-color: #f0f4f8;
+  --text-color: #333333;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #4a90e2, #ffffff, #f0f4f8);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#sidebar {
+  width: 300px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#map-container {
+  margin-left: 300px;
+  height: 100vh;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+select, button {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text-color);
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: inset 6px 6px 10px rgba(0, 0, 0, 0.1), inset -6px -6px 10px rgba(255, 255, 255, 0.5);
+}
+
+select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%234a90e2" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 50%;
+}
+
+button {
+  background: var(--primary-color);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+#route-info {
+  margin-top: 20px;
+  padding: 15px;
+  background: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+#sucursales-list {
+  margin-top: 30px;
+}
+
+#sucursales-list h3 {
+  cursor: pointer;
+  padding: 10px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+#sucursales-list h3:hover {
+  background: var(--secondary-color);
+}
+
+#sucursales-list .sucursales-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+#sucursales-list h3.active + .sucursales-container {
+  max-height: 500px;
+}
+
+.sucursal-item {
+  cursor: pointer;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  background: var(--card-bg);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 5px 5px 15px var(--shadow-color), -5px -5px 15px rgba(255, 255, 255, 0.5);
+}
+
+.sucursal-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 8px 8px 20px var(--shadow-color), -8px -8px 20px rgba(255, 255, 255, 0.5);
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.info-card h4 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  color: var(--text-color);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 4px solid var(--primary-color);
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
